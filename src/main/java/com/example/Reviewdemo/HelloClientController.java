@@ -22,7 +22,7 @@ public class HelloClientController {
 	@GetMapping("/getHello")
 	public String getHello() {
 		 HttpClient client = new DefaultHttpClient();
-	     HttpGet get = new HttpGet("http://192.168.99.100:8082/Hello");
+	     HttpGet get = new HttpGet("http://localhost:8082/Hello");
          //get.addHeader("dummy", "fredie");
 		try {
 			client.execute(get);
@@ -37,7 +37,7 @@ public class HelloClientController {
 		System.out.println("entering jhello");
 		Client client1 = ClientBuilder.newClient();
 		System.out.println("setting client");
-		String name = client1.target("http://192.168.99.100:8082/Hello")
+		String name = client1.target("http://localhost:8082/Hello")
 		        .request(MediaType.TEXT_PLAIN)
 		        .get(String.class);
 		
