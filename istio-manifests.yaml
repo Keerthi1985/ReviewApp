@@ -45,5 +45,5 @@ spec:
     - destination:
         host: review
         port:
-          number: 8080
+          number: 80
 ---
