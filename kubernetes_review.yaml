@@ -15,15 +15,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rating
+  name: dataservice
 spec:
   selector:
     matchLabels:
-      app: rating
+      app: dataservice
   template:
     metadata:
       labels:
-        app: rating
+        app: dataservice
     spec:
       containers:
         - name: server
@@ -34,11 +34,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rating
+  name: dataservice
 spec:
   type: ClusterIP
   selector:
-    app: rating
+    app: dataservice
   ports:
   - name: http
     port: 8082
