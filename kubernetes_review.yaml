@@ -67,7 +67,6 @@ kind: Service
 metadata:
   name: review
 spec:
-  type: LoadBalancer
   selector:
     app: review
   ports:
