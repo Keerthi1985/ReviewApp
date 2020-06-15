@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: docker.io/keerthi19/rating:latest1
+          image: docker.io/keerthi19/rating:latest2
           ports:
           - containerPort: 8082
 ---
@@ -61,7 +61,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: docker.io/keerthi19/review:latest
+          image: docker.io/keerthi19/review:latest2
           ports:
           - containerPort: 8080
 ---
