@@ -5,6 +5,7 @@ RUN mvn dependency:go-offline -B
 RUN mvn package
 FROM openjdk:8u171-jre-alpine
 WORKDIR /demo
+COPY InfyBuddy.jar ./demo/InfyBuddy.jar
 COPY --from=maven target/*.jar ./demo/review.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","./demo/review.jar"]
+ENTRYPOINT ["java","-javaagent:./demo/InfyBuddy.jar","-jar","./demo/review.jar"]
