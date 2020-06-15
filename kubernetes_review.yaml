@@ -15,6 +15,102 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: dataservice4
+spec:
+  selector:
+    matchLabels:
+      app: dataservice4
+  template:
+    metadata:
+      labels:
+        app: dataservice4
+    spec:
+      containers:
+        - name: server
+          image: docker.io/keerthi19/sample4:latest
+          ports:
+          - containerPort: 8084
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dataservice4
+spec:
+  type: ClusterIP
+  selector:
+    app: dataservice4
+  ports:
+  - name: http
+    port: 8084
+    targetPort: 8084
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dataservice3
+spec:
+  selector:
+    matchLabels:
+      app: dataservice3
+  template:
+    metadata:
+      labels:
+        app: dataservice3
+    spec:
+      containers:
+        - name: server
+          image: docker.io/keerthi19/sample3:latest
+          ports:
+          - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dataservice3
+spec:
+  type: ClusterIP
+  selector:
+    app: dataservice3
+  ports:
+  - name: http
+    port: 8083
+    targetPort: 8083
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dataservice
+spec:
+  selector:
+    matchLabels:
+      app: dataservice
+  template:
+    metadata:
+      labels:
+        app: dataservice
+    spec:
+      containers:
+        - name: server
+          image: docker.io/keerthi19/rating:latest1
+          ports:
+          - containerPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dataservice
+spec:
+  type: ClusterIP
+  selector:
+    app: dataservice
+  ports:
+  - name: http
+    port: 8082
+    targetPort: 8082
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: review
 spec:
   selector:
@@ -45,3 +141,5 @@ spec:
   - name: http
     port: 80
     targetPort: 8080
+---
+ 
