@@ -43,7 +43,7 @@ spec:
   http:
   - route:
     - destination:
-        host: review-external
+        host: review
         port:
           number: 80
 ---
