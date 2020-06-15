@@ -21,23 +21,25 @@ public class HelloClientController {
 	
 	@GetMapping("/getHello")
 	public String getHello() {
+		System.out.println("entering hello");
 		 HttpClient client = new DefaultHttpClient();
-	     HttpGet get = new HttpGet("http://dataservice.default.svc.cluster.local:8082/Hello");
+	     HttpGet get = new HttpGet("http://rating:8082/Hello");
          //get.addHeader("dummy", "fredie");
+		 System.out.println("changed http req to rating");
 		try {
 			client.execute(get);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "Hello";
+		return "HTTPHello";
 	}
 	@GetMapping("/getJHello")
 	public String getJerseyHello() {
 		System.out.println("entering jhello");
 		Client client1 = ClientBuilder.newClient();
 		System.out.println("setting client");
-		String name = client1.target("http://dataservice.default.svc.cluster.local:8082/Hello")
+		String name = client1.target("http://rating:8082/Hello")
 		        .request(MediaType.TEXT_PLAIN)
 		        .get(String.class);
 		

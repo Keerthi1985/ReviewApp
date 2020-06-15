@@ -15,79 +15,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dataservice4
+  name: rating
 spec:
   selector:
     matchLabels:
-      app: dataservice4
+      app: rating
   template:
     metadata:
       labels:
-        app: dataservice4
-    spec:
-      containers:
-        - name: server
-          image: docker.io/keerthi19/sample4:latest
-          ports:
-          - containerPort: 8084
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: dataservice4
-spec:
-  type: ClusterIP
-  selector:
-    app: dataservice4
-  ports:
-  - name: http
-    port: 8084
-    targetPort: 8084
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: dataservice3
-spec:
-  selector:
-    matchLabels:
-      app: dataservice3
-  template:
-    metadata:
-      labels:
-        app: dataservice3
-    spec:
-      containers:
-        - name: server
-          image: docker.io/keerthi19/sample3:latest
-          ports:
-          - containerPort: 8083
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: dataservice3
-spec:
-  type: ClusterIP
-  selector:
-    app: dataservice3
-  ports:
-  - name: http
-    port: 8083
-    targetPort: 8083
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: dataservice
-spec:
-  selector:
-    matchLabels:
-      app: dataservice
-  template:
-    metadata:
-      labels:
-        app: dataservice
+        app: rating
     spec:
       containers:
         - name: server
@@ -98,11 +34,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: dataservice
+  name: rating
 spec:
   type: ClusterIP
   selector:
-    app: dataservice
+    app: rating
   ports:
   - name: http
     port: 8082
