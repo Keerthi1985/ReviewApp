@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: docker.io/keerthi19/rating:latest4
+          image: docker.io/keerthi19/rating:latest
           ports:
           - containerPort: 8082
 ---
@@ -36,6 +36,7 @@ kind: Service
 metadata:
   name: rating
 spec:
+  type: ClusterIP
   selector:
     app: rating
   ports:
@@ -58,7 +59,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: docker.io/keerthi19/review:latest4
+          image: docker.io/keerthi19/review:latest
           ports:
           - containerPort: 8080
 ---
@@ -67,6 +68,7 @@ kind: Service
 metadata:
   name: review
 spec:
+  type: ClusterIP
   selector:
     app: review
   ports:
