@@ -68,7 +68,7 @@ kind: Service
 metadata:
   name: review
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: review
   ports:
